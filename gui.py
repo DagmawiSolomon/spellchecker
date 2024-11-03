@@ -3,7 +3,7 @@ import tkinter as tk
 
 window = tk.Tk()
 window.title("Spellchecker")
-window.geometry("500x250")  
+window.geometry("550x250")  
 
 
 entry = tk.Text(window, height=8) 
