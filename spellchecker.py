@@ -44,4 +44,4 @@ def levenshtein_distance(word1, word2):
         )
 
 
-print(levenshtein_distance("Dog", "Cat"))
+print(levenshtein_distance("Dog", "Cats"))
