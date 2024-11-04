@@ -32,7 +32,8 @@ def levenshtein_distance(word1, word2):
         return len2
     if len2 == 0:
         return len1
-            
+    
+     
     if word1[0] ==word2[0]:
         return levenshtein_distance(word1[1:], word2[1:])
     else:
