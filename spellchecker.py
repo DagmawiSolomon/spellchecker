@@ -26,7 +26,7 @@ def execution_time():
 
 # Levenshtein distance
 @execution_time()
-def levenshtein_distance(word1, word2):
+def levenshtein_distance_recurssive(word1, word2):
     len1, len2 = len(word1), len(word2)
     if len1 == 0:
         return len2
@@ -42,6 +42,9 @@ def levenshtein_distance(word1, word2):
             levenshtein_distance(word1, word2[1:]),
             levenshtein_distance(word1[1:], word2[1:])
         )
+        
+
+            
 
 
-print(levenshtein_distance("Dog", "Cats"))
+print(levenshtein_distance_recurssive("kitten", "sitting"))
