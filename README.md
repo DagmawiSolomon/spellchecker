@@ -4,6 +4,6 @@ A python implementation of a spell checker using different edit distance algorit
 
 
 #### Todo
-- A CLI App to spell check files ( a linter for text per say)
+- A CLI App to spell check files ( a linter for text files per say)
 - A Web interface that visualizes the process of spell checking
 - A Web interface where users get real time spellchecking
