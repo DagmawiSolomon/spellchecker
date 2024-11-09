@@ -1,6 +1,6 @@
 # Spellchecker
 
-A python implementation of a spell checker using different BK-Trees and Levenshtein's algorithm 
+A python implementation of a spell checker using different BK-Trees and Levenshtein's algorithm.
 
 
 #### Todo
