@@ -1,3 +1,5 @@
+
+from spellchecker import wagner_fischer
 def load_dictionary(filepath: str) -> list:
     """Loads words from a dictionary file and returns them as a list.
     
@@ -10,3 +12,12 @@ def load_dictionary(filepath: str) -> list:
     with open(filepath, 'r') as file:
         dictionary = file.read().splitlines()
     return dictionary
+
+user_input = (input("Enter a word: ")).lower()
+
+
+dictionary = load_dictionary('words.txt')
+
+for word in dictionary:
+    if wagner_fischer(user_input, word) == 0:
+        print(word)
