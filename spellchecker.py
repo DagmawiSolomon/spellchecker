@@ -23,7 +23,20 @@ def execution_time():
     return decorator
 
      
-def wagner_fischer(str1, str2):
+def wagner_fischer(str1: str, str2: str) -> int:
+    """Calculates the Levenshtein edit distance between two strings using the Wagner-Fischer algorithm.
+    
+    The Levenshtein distance is a metric for measuring the difference between two sequences. 
+    It represents the minimum number of single-character edits (insertions, deletions, or substitutions) 
+    required to transform one string into the other.
+    
+    Args:
+        str1 (str): The first input string.
+        str2 (str): The second input string.
+    
+    Returns:
+        int: The edit distance between the two strings, indicating the minimum number of edits needed.
+    """
     m, n = len(str1), len(str2)
     
     # Initialize a 2D array with dimensions (n+1) x (m+1) for storing edit distances
