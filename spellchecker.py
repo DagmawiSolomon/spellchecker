@@ -1,28 +1,3 @@
-import time
-
-
-def execution_time():
-    is_evaluating = False
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            nonlocal is_evaluating
-            if is_evaluating:
-                return func(*args, **kwargs)
-            else:
-                start = time.time()
-                is_evaluating = True
-                try:
-                    value = func(*args, **kwargs)
-                finally:
-                    is_evaluating = False  
-                end = time.time()
-                print(f"Total execution time for {func.__name__}: {end - start:.8f}s")
-                return value
-        return wrapper
-                
-    return decorator
-
-     
 def wagner_fischer(str1: str, str2: str) -> int:
     """Calculates the Levenshtein edit distance between two strings using the Wagner-Fischer algorithm.
     
@@ -63,4 +38,4 @@ def wagner_fischer(str1: str, str2: str) -> int:
                                    D[i][j - 1])     # Insert
     return D[n][m]
 
-print(wagner_fischer("Hate", "Debt"))
+print(wagner_fischer("Accoustic", "Fischer"))
