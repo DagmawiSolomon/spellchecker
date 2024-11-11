@@ -23,28 +23,26 @@ def execution_time():
     return decorator
 
      
-
-# Levenshtein distance
-@execution_time()
-def levenshtein_distance_recurssive(word1, word2):
-    len1, len2 = len(word1), len(word2)
-    if len1 == 0:
-        return len2
-    if len2 == 0:
-        return len1
+def wagner_fischer(str1, str2):
+    m, n = len(str1), len(str2)
     
-     
-    if word1[0] ==word2[0]:
-        return levenshtein_distance(word1[1:], word2[1:])
-    else:
-        return 1 + min(
-            levenshtein_distance(word1[1:], word2),
-            levenshtein_distance(word1, word2[1:]),
-            levenshtein_distance(word1[1:], word2[1:])
-        )
+    D = [[0]*m]*n
+    
+    for i in range(n):
+        D[i][0] = i
+    
+    for j in range(m):
+        D[0][j] = j
         
+    for i in range(1, m):
+        for j in range(1, n):
+            if str1[i - 1] == str2[j - 1]:
+                D[i][j] = D[i - 1][j - 1]
+                
+            else:
+                return 1 + min(D[i - 1][j - 1],  
+                                   D[i - 1][j],     
+                                   D[i][j - 1])
+    return D[m][n]
 
-            
-
-
-print(levenshtein_distance_recurssive("kitten", "sitting"))
+print(wagner_fischer("Boats", "Float"))
