@@ -26,23 +26,23 @@ def execution_time():
 def wagner_fischer(str1, str2):
     m, n = len(str1), len(str2)
     
-    D = [[0]*m]*n
+    D = [[0] * (m+1) for _ in range(n+1)]
+
     
-    for i in range(n):
+    for i in range(n+1):
         D[i][0] = i
     
-    for j in range(m):
+    for j in range(m+1):
         D[0][j] = j
         
-    for i in range(1, m):
-        for j in range(1, n):
-            if str1[i - 1] == str2[j - 1]:
-                D[i][j] = D[i - 1][j - 1]
-                
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if str1[i-1] == str2[j-1]:
+                D[i][j] = D[i-1][j-1]                
             else:
-                return 1 + min(D[i - 1][j - 1],  
+                D[i][j] = 1 + min(D[i - 1][j - 1],  
                                    D[i - 1][j],     
                                    D[i][j - 1])
     return D[m][n]
 
-print(wagner_fischer("Boats", "Float"))
+print(wagner_fischer("Hate", "Debt"))
