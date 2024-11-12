@@ -20,6 +20,7 @@ entry.bind("<space>", on_space_press)
 entry.pack(fill=tk.X, padx=10, pady=10)
 
 
-
+# tooltip on hover
+# red squiggly lines
 
 window.mainloop()
