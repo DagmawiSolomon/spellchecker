@@ -1,5 +1,5 @@
 
-class spellchecker:
+class SpellChecker:
     def wagner_fischer(str1: str, str2: str) -> int:
         """Calculates the Levenshtein edit distance between two strings using the Wagner-Fischer algorithm.
         
