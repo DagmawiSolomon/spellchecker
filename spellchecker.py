@@ -1,6 +1,10 @@
 
 class SpellChecker:
-    def wagner_fischer(str1: str, str2: str) -> int:
+    
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self.load_dictionary(filepath)
+    def wagner_fischer(self, str1: str, str2: str) -> int:
         """Calculates the Levenshtein edit distance between two strings using the Wagner-Fischer algorithm.
         
         The Levenshtein distance is a metric for measuring the difference between two sequences. 
@@ -41,7 +45,7 @@ class SpellChecker:
         return D[n][m]
 
 
-    def load_dictionary(filepath: str) -> list:
+    def load_dictionary(self, filepath: str) -> list:
         """Loads words from a dictionary file and returns them as a list.
         
         Args:
