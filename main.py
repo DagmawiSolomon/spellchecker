@@ -1,6 +1,5 @@
-
-from spellchecker import load_dictionary
-
+from spellchecker import load_dictionary, wagner_fischer
+user_input = input("Enter a word: ")
 dictionary = load_dictionary('words.txt')
 
 for word in dictionary:
