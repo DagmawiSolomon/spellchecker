@@ -1,4 +1,5 @@
 import argparse
+from spellchecker import SpellChecker
 
 parser = argparse.ArgumentParser(
                     prog='SpellChecker',
@@ -18,5 +19,8 @@ words = []
 with open (filepath, 'r') as file:
     words = file.read().split()
     
-print(words)
+spellchecker = SpellChecker("words.txt")
+for i, word in enumerate(words):
+    print(f"{word}: {spellchecker.check(word)}")
+    
     
