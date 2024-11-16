@@ -54,6 +54,7 @@ class SpellChecker:
         Returns:
             list: A list of words from the dictionary file.
         """
+        dictionary = []
         with open(filepath, 'r') as file:
             dictionary = file.read().splitlines()
         return dictionary
