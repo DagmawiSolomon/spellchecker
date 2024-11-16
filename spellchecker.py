@@ -44,26 +44,31 @@ class SpellChecker:
                                     D[i][j - 1])     # Insert
         return D[n][m]
     
-    def check(self, input_word: str) -> str:
+    def check(self, input_word: str) -> list:
         """
-        Checks if a given word is present in the dictionary or finds a close match 
-        using the Wagner-Fischer algorithm.
+        Checks if a given word is present in the dictionary or finds close matches 
+        using the Wagner-Fischer algorithm. Returns words with an edit distance of 1 
+        from the input word.
 
         Args:
             input_word (str): The word to check against the dictionary.
 
         Returns:
-            str: A recommended word from the dictionary if the edit distance is 
-            less than 3, or "No available recommendation" if no close match is found.
+            list: A list of recommended words from the dictionary that have an 
+                edit distance of 1 from the input word. If the exact word is found 
+                (edit distance 0), an empty list is returned. If no close matches 
+                are found, the list will be empty.
         """
         recommendations = []
         for dictionary_word in self.words:
             edit_distance = self.wagner_fischer(input_word.lower(), dictionary_word)
             if edit_distance == 0:
-                return []
+                return []  
             elif edit_distance == 1:
-                recommendations.append(dictionary_word)
-        return recommendations
+                recommendations.append(dictionary_word) 
+
+        return recommendations 
+
 
         
         
