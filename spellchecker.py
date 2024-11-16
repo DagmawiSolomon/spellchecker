@@ -3,7 +3,7 @@ class SpellChecker:
     
     def __init__(self, filepath):
         self.filepath = filepath
-        self.load_dictionary(filepath)
+        self.words = self.load_dictionary(filepath)
     def wagner_fischer(self, str1: str, str2: str) -> int:
         """Calculates the Levenshtein edit distance between two strings using the Wagner-Fischer algorithm.
         
@@ -43,8 +43,31 @@ class SpellChecker:
                                     D[i - 1][j],     # Remove
                                     D[i][j - 1])     # Insert
         return D[n][m]
+    
+    def check(self, input_word: str) -> str:
+        """
+        Checks if a given word is present in the dictionary or finds a close match 
+        using the Wagner-Fischer algorithm.
 
+        Args:
+            input_word (str): The word to check against the dictionary.
 
+        Returns:
+            str: A recommended word from the dictionary if the edit distance is 
+            less than 3, or "No available recommendation" if no close match is found.
+        """
+        recommendations = []
+        for dictionary_word in self.words:
+            edit_distance = self.wagner_fischer(input_word.lower(), dictionary_word)
+            if edit_distance == 0:
+                return []
+            elif edit_distance == 1:
+                recommendations.append(dictionary_word)
+        return recommendations
+
+        
+        
+        
     def load_dictionary(self, filepath: str) -> list:
         """Loads words from a dictionary file and returns them as a list.
         
