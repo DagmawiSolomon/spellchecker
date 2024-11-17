@@ -4,7 +4,7 @@ A python implementation of a spell checker that finds the Levenshtein's distance
 
 #### Todo
 - A CLI App to spell check files ( a linter for text files ).
-- A Web interface that visualizes the process of spell checking.
+- A Web interface that visualizes the process of spell checking (future versions).
 - A Web interface where users get real time spellchecking.
 
 
