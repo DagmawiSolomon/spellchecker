@@ -29,6 +29,14 @@ class SpellCheckerApp:
     def get_words(file_path: str) -> Iterator[Tuple[int, int, str]]:
         """
         Generator to yield words from the file along with their positions.
+        Args:
+            filepath (str): The path to the file.
+        
+        Yields: 
+            Tuple[int, int, str]: A tuple containing:
+            - The line number (1-based index) where the word is found.
+            - The word number (1-based index) in that line.
+            - The word itself.
         """
         with open(file_path, 'r') as file:
             for line_num, line in enumerate(file, start=1):
@@ -37,7 +45,15 @@ class SpellCheckerApp:
                     yield line_num, word_num, word
 
     def check_file(self:"SpellCheckerApp", filepath: str) -> None:
-        """Checks spelling in the provided file and suggests corrections."""
+        """
+        Checks spelling in the provided file and suggests corrections.
+        Args:
+        filepath (str): The path to the file to be checked for spelling errors.
+
+        Returns:
+        None: This method doesn't return anything. It prints the misspelled words and suggestions directly.
+    
+        """
         for line_num, word_num, word in self.get_words(filepath):
             suggestions = self.spellchecker.check(word)
             if suggestions:
@@ -45,7 +61,14 @@ class SpellCheckerApp:
                       f"Possible corrections: {', '.join(suggestions)}")
                 
     def check_word(self:"SpellCheckerApp", word:str) -> None: 
-        """Checks spelling of the provided word and suggests corrections."""
+        """
+        Checks spelling of the provided word and suggests corrections.
+        Args:
+        filepath (str): The path to the file to be checked for spelling errors.
+
+        Returns:
+        None: This method doesn't return anything. It prints the misspelled words and suggestions directly.
+        """
         suggestions = self.spellchecker.check(word)
         if suggestions:
             print(f"Possible corrections for the word '{word}': {', '.join(suggestions)}")
