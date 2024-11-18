@@ -43,7 +43,7 @@ A Python-based spellchecker that utilizes the [**Wagner-Fischer algorithm**](htt
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/spellchecker.git
+   git clone https://github.com/DagmawiSolomon/spellchecker
    cd spellchecker
    ```
 ---
