@@ -16,19 +16,20 @@ class SpellCheckerApp:
         parser.add_argument(
             "--file",
             type=str,
-            help = "Specify a file"
+            help="Specify a file"
         )
-        
         parser.add_argument(
             "--word",
             type=str,
-            help = "Specify a word"
+            help="Specify a word"
         )
         return parser.parse_args()
 
     @staticmethod
     def get_words(file_path: str) -> Iterator[Tuple[int, int, str]]:
-        """Generator to yield words from the file along with their positions."""
+        """
+        Generator to yield words from the file along with their positions.
+        """
         with open(file_path, 'r') as file:
             for line_num, line in enumerate(file, start=1):
                 words = line.split()
