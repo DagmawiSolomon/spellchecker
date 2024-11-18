@@ -1,4 +1,5 @@
 import argparse
+from typing import Iterator, Tuple
 from spellchecker import SpellChecker
 
 
@@ -26,7 +27,7 @@ class SpellCheckerApp:
         return parser.parse_args()
 
     @staticmethod
-    def get_words(file_path):
+    def get_words(file_path: str) -> Iterator[Tuple[int, int, str]]:
         """Generator to yield words from the file along with their positions."""
         with open(file_path, 'r') as file:
             for line_num, line in enumerate(file, start=1):
@@ -34,7 +35,7 @@ class SpellCheckerApp:
                 for word_num, word in enumerate(words, start=1):
                     yield line_num, word_num, word
 
-    def check_file(self, filepath):
+    def check_file(self:"SpellCheckerApp", filepath: str) -> None:
         """Checks spelling in the provided file and suggests corrections."""
         for line_num, word_num, word in self.get_words(filepath):
             suggestions = self.spellchecker.check(word)
@@ -42,7 +43,7 @@ class SpellCheckerApp:
                 print(f"Misspelled word found at Line {line_num}, Word {word_num}: '{word}'. "
                       f"Possible corrections: {', '.join(suggestions)}")
                 
-    def check_word(self, word):
+    def check_word(self:"SpellCheckerApp", word:str) -> None: 
         """Checks spelling of the provided word and suggests corrections."""
         suggestions = self.spellchecker.check(word)
         if suggestions:
@@ -52,7 +53,7 @@ class SpellCheckerApp:
         
         
 
-    def run(self):
+    def run(self:"SpellCheckerApp") -> None:
         args = self.parse_arguments()
         if args.file:
             self.check_file(args.file)
@@ -61,9 +62,6 @@ class SpellCheckerApp:
         else:
             print("You must specify either a file or a word to spell check")
            
-
-            
-
 
 if __name__ == "__main__":
     app = SpellCheckerApp(dictionary_path="words.txt")
