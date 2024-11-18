@@ -55,9 +55,9 @@ class SpellCheckerApp:
         for line_num, word_num, word in self.get_words(filepath):
             suggestions = self.spellchecker.check(word)
             if suggestions:
-                print(f"Misspelled word found at Line {line_num},"
-                      "Word {word_num}:'{word}'. "
-                      f"Possible corrections: {', '.join(suggestions)}")
+                print(f"{filepath}:{line_num}:{word_num}: "
+                      f"Possible corrections: {', '.join(suggestions)}"
+                      )
     
     def check_word(self: "SpellCheckerApp", word: str) -> None:
         """
