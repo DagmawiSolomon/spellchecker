@@ -68,10 +68,7 @@ class SpellChecker:
                 recommendations.append(dictionary_word) 
 
         return recommendations 
-
-
-        
-        
+    
         
     def load_dictionary(self, filepath: str) -> list:
         """Loads words from a dictionary file and returns them as a list.
