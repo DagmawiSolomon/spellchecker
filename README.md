@@ -58,10 +58,6 @@ python cli.py --word <word>
 ```bash
 python cli.py --file <filepath>
 ```
-
-### Future Plans
-- Add functionality to spell-check text files and integrate visualization and real-time features.
-
 ---
 
 ## Why Wagner-Fischer?
@@ -73,7 +69,7 @@ python cli.py --file <filepath>
 
 ## Contribution
 
-We welcome contributions! Here's how you can help:
+I welcome contributions! Here's how you can help:
 
 1. Fork the repository.
 2. Create a feature branch:
