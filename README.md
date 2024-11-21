@@ -65,8 +65,6 @@ python cli.py --file <filepath>
 - **Efficiency**: A dynamic programming approach to calculate Levenshtein distance accurately.
 - **Accuracy**: Identifies the best possible corrections by computing exact distances between words.
 
-
-
 ## Contribution
 
 I welcome contributions! Here's how you can help:
