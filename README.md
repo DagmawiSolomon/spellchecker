@@ -1,8 +1,8 @@
-# SpellChecker
+# SpellChecker 
 
 A Python based spellchecker that utilizes the [**Wagner-Fischer algorithm**](https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm) to calculate the [**Levenshtein distance**](https://en.wikipedia.org/wiki/Levenshtein_distance), ensuring accurate and efficient spell correction.
 
-## Features
+## Features  
 
 - **Levenshtein Distance Calculation**  
   Implements the [**Wagner-Fischer algorithm**](https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm) to determine the minimum number of single-character edits (insertions, deletions, or substitutions) required to transform one word into another.
