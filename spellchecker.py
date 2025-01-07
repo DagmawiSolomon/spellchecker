@@ -4,6 +4,7 @@ class SpellChecker:
     def __init__(self, filepath):
         self.filepath = filepath
         self.words = self.load_dictionary(filepath)
+        
     def wagner_fischer(self, str1: str, str2: str) -> int:
 
         """
